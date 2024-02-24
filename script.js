@@ -14,7 +14,7 @@ function makeDraggable(element) {
 
   window.addEventListener('mousemove', function(event) {
     if (!isDragging) return;
-    event.preventDefault(); // 添加这一行
+    event.preventDefault(); // 阻止默认的鼠标事件
     var newRight = window.innerWidth - (event.clientX - mouseOffset.x) - element.offsetWidth;
     var newBottom = window.innerHeight - (event.clientY - mouseOffset.y) - element.offsetHeight;
     if (newRight < 0) newRight = 0;
@@ -76,7 +76,7 @@ document.getElementById('send').addEventListener('click', function() {
     userMessage.textContent = input.value;
     userMessage.className = 'bubble';
     messages.appendChild(userMessage);
-    messages.scrollTop = messages.scrollHeight; // 添加这一行
+    messages.scrollTop = messages.scrollHeight; 
     input.value = '';
     // 发送消息给dify
     sendMessageToDify(userMessage.textContent).then(function(response) {
